@@ -1,5 +1,3 @@
-Here you can say lots of fun things about your site.
+My random collection of musings.
 
-Maybe say a some things about yourself.
-
-Or maybe what you plan to blog about.
+The thoughts expressed here are my own and not my employers.
