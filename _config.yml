@@ -36,7 +36,7 @@ titles_from_headings:
   strip_title: true
   collections: true
 
-shpw_downloads: "false"
+shpw_downloads: false
 
 defaults:
   - scope:
