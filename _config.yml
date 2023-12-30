@@ -32,6 +32,10 @@ plugins:
   - jekyll-sitemap
   - jekyll-remote-theme
 
+# Set the Sass partials directory, as we're using @imports
+sass:
+  style: compressed # You might prefer to minify using :compressed
+
 titles_from_headings:
   strip_title: true
   collections: true
