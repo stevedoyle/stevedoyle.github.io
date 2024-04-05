@@ -2,6 +2,10 @@
 layout: default
 ---
 
+# Welcome to my blog
+
+I write about stuff that I find interesting.
+
 <div class="posts">
   {% for post in site.posts %}
     <article class="post">
@@ -16,7 +20,3 @@ layout: default
     </article>
   {% endfor %}
 </div>
-
-## Welcome to my blog
-
-I write about stuff that I find interesting. Maybe you might find them interesting too. If you do, enjoy!
