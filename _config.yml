@@ -27,10 +27,10 @@ kramdown:
   syntax_highlighter_opts:
     disable: false
 
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-remote-theme
+#plugins:
+#  - jekyll-feed
+#  - jekyll-sitemap
+#  - jekyll-remote-theme
 
 # Set the Sass partials directory, as we're using @imports
 sass:
