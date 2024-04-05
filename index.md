@@ -2,10 +2,6 @@
 layout: default
 ---
 
-# Welcome to my blog
-
-I write about stuff that I find interesting.
-
 <div class="posts">
   {% for post in site.posts %}
     <article class="post">
