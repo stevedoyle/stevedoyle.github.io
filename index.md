@@ -4,6 +4,8 @@ layout: default
 
 I write about what interests me.
 
+---
+
 <div class="posts">
   {% for post in site.posts %}
     <article class="post">
