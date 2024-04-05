@@ -17,3 +17,6 @@ layout: default
   {% endfor %}
 </div>
 
+## Welcome to my blog
+
+I write about stuff that I find interesting. Maybe you might find them interesting too. If you do, enjoy!
