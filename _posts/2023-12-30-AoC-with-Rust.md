@@ -1,4 +1,4 @@
-## Experiences from using Rust in Advent-of-Code 2023
+## Using Rust in Advent-of-Code 2023
 
 This is the first year that I participated in the [Advent of Code](https://adventofcode.com/2023). I decided to take on this years AoC puzzles using Rust. I figured it would be a good way to practice using Rust and to possibly use some new Rust crates. Here are some thoughts after [completing](https://github.com/stevedoyle/advent-of-code) this years puzzles.
 
@@ -9,3 +9,5 @@ This is the first year that I participated in the [Advent of Code](https://adven
 - The `anyhow` crate simplifies error handling. Or at a minimum it improves code readability by being able to use `Result<()>` instead of `Result<(), Box<dyn Error>>`.
 - Cycle detection and memoization. Some puzzles required this to be able to find a solution in a reasonable running time. This was not something that I had encountered when writing production code. Mainly because I wasn't writing production code that could have leveraged this to reduce runtimes.
 - Graph algorithms are a weak area for me. I struggled a little with the puzzles that required graph algorithms for their solution. I had to spend some time researching these algorithms in order to be able to implement a solution. This is an area where I need to invest some time to improve my knowledge. 
+- Overall, using Rust was a good choice. It didn't get in the way of solving the puzzles and the speed of development was good, better than if I had used C or C++ and close to the speed of development using Python.
+
