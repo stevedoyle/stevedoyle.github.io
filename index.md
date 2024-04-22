@@ -2,7 +2,7 @@
 layout: default
 ---
 
-I write about what interests me.
+This is a personal blog, it does not represent any institution that I am affiliated with.
 
 ---
 
