@@ -1,4 +1,6 @@
-# Dec 2023 - What Tools Am I Using?
+---
+title: "Dec 2023 - What Tools Am I Using?"
+---
 
 Given the time of year, here is an updated catalog of the tools that I currently use.
 

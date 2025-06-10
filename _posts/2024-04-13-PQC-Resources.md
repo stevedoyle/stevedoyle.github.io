@@ -5,8 +5,6 @@ tags:
   - Cryptography
 ---
 
-# PQC Resources
-
 - ML-KEM Specification: [FIPS-203](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.203.pdf)
 - ML-DSA Specification: [FIPS-204](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.204.pdf)
 - SH-DSA Specification: [FIPS-205](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.205.pdf)
