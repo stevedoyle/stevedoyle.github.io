@@ -18,8 +18,9 @@ github_username: "stevedoyle"
 #########################################################################################
 ######### Nothing below needs to be changed (unless you know what you're doing) #########
 #########################################################################################
-theme: "minima"
+#theme: "minima"
 #remote_theme: pages-themes/minimal@v0.2.0
+remote_theme: "mmistakes/minimal@v4.27.1"
 
 rss: rss
 
@@ -27,7 +28,8 @@ kramdown:
   syntax_highlighter_opts:
     disable: false
 
-#plugins:
+plugins:
+  - jekyll-include-cache
 #  - jekyll-feed
 #  - jekyll-sitemap
 #  - jekyll-remote-theme
