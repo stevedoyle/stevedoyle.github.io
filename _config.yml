@@ -22,7 +22,7 @@ github_username: "stevedoyle"
 #remote_theme: pages-themes/minimal@v0.2.0
 remote_theme: "mmistakes/minimal-mistakes@4.27.1"
 minimal_mistakes_skin: "default"
-
+search: true
 rss: rss
 
 kramdown:
@@ -31,25 +31,56 @@ kramdown:
     disable: false
 
 plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
   - jekyll-include-cache
 #  - jekyll-feed
 #  - jekyll-sitemap
 #  - jekyll-remote-theme
 
+# Outputting
+permalink: /:categories/:title/
+paginate: 5 # amount of posts per page
+paginate_path: /page:num/
+
+include:
+  - _pages
+
 # Set the Sass partials directory, as we're using @imports
-sass:
-  style: compressed # You might prefer to minify using :compressed
+#sass:
+#  style: compressed # You might prefer to minify using :compressed
 
-titles_from_headings:
-  strip_title: true
-  collections: true
+#titles_from_headings:
+#  strip_title: true
+#  collections: true
 
-show_downloads: false
-show_excerpts: true
+#show_downloads: false
+#show_excerpts: true
 
 defaults:
+  # _posts
   - scope:
       path: ""
-      type: post
+      type: posts
     values:
-      tags: Other
+      layout: single
+      author_profile: true
+      read_time: true
+      share: true
+      related: true
+  # _pages
+  - scope:
+      path: "_pages"
+      type: pages
+    values:
+      layout: single
+      author_profile: true
+
+category_archive:
+  type: liquid
+  path: /categories/
+tag_archive:
+  type: liquid
+  path: /tags/
+
