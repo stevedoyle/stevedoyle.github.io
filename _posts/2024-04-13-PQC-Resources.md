@@ -1,3 +1,10 @@
+---
+title: "PQC Resources"
+tags:
+  - PQC
+  - Cryptography
+---
+
 # PQC Resources
 
 - ML-KEM Specification: [FIPS-203](https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.203.pdf)

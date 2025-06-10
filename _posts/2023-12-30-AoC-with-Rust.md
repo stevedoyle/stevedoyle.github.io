@@ -1,3 +1,10 @@
+---
+title: "Using Rust in Advent-of-Code 2023"
+tags:
+  - Rust
+  - AoC
+---
+
 ## Using Rust in Advent-of-Code 2023
 
 This is the first year that I participated in the [Advent of Code](https://adventofcode.com/2023). I decided to take on this years AoC puzzles using Rust. I figured it would be a good way to practice using Rust and to possibly use some new Rust crates. Here are some thoughts after [completing](https://github.com/stevedoyle/advent-of-code) this years puzzles.
