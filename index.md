@@ -1,11 +1,12 @@
 ---
-layout: default
+layout: home
+author_profile: true
 ---
 
 This is a personal blog, it does not represent any institution that I am affiliated with.
 
 ---
-
+<!--
 <div class="posts">
   {% for post in site.posts %}
     <article class="post">
@@ -20,3 +21,4 @@ This is a personal blog, it does not represent any institution that I am affilia
     </article>
   {% endfor %}
 </div>
+-->
