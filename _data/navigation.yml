@@ -1,0 +1,13 @@
+main:
+  - title: "Posts"
+    url: "/posts/"
+    icon: "fa fa-file-text"
+  - title: "Categories"
+    url: "/categories/"
+    icon: "fa fa-folder"
+  - title: "Tags"
+    url: "/tags/"
+    icon: "fa fa-tags"
+  - title: "About"
+    url: "/about/"
+    icon: "fa fa-user"
