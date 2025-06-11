@@ -74,7 +74,7 @@ defaults:
       related: true
       sidebar:
         nav: "lenker"
-        image: "/assets/images/slog.jpg"
+        image_path: "/assets/images/slog.jpg"
   # _pages
   - scope:
       path: "_pages"
