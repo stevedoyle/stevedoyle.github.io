@@ -1,5 +1,7 @@
 title: "Slog"
-author: "Stephen Doyle"
+author:
+  name: "Stephen Doyle"
+  avatar: "/assets/images/slog.jpg"
 description: "My ramblings" # This will show up in places like twitter, linkedin, etc, if you share your sites url as a post.
 
 # Email / Social media user names used by the minima theme:
@@ -34,9 +36,9 @@ plugins:
   - jekyll-paginate
   - jekyll-sitemap
   - jekyll-feed
+  - jekyll-gist
+  - jemoji
   - jekyll-include-cache
-#  - jekyll-feed
-#  - jekyll-sitemap
 #  - jekyll-remote-theme
 
 # Outputting
@@ -57,6 +59,7 @@ include:
 
 #show_downloads: false
 #show_excerpts: true
+
 
 defaults:
   # _posts
