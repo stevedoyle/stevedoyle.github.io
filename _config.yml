@@ -72,8 +72,9 @@ defaults:
       read_time: true
       share: true
       related: true
-    sidebar:
-      image: "/assets/images/slog.jpg"
+      sidebar:
+        nav: "lenker"
+        image: "/assets/images/slog.jpg"
   # _pages
   - scope:
       path: "_pages"
