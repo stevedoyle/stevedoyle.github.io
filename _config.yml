@@ -72,9 +72,6 @@ defaults:
       read_time: true
       share: true
       related: true
-      sidebar:
-        nav: "lenker"
-        image_path: "/assets/images/slog.jpg"
   # _pages
   - scope:
       path: "_pages"
