@@ -85,18 +85,7 @@ print-type-size     field `.a`: 1 bytes
 print-type-size     end padding: 1 bytes
 ```
 
-```mermaid
----
-config:
-  packet:
-    bitsPerRow: 8
----
-packet-beta
-0-3: "b"
-4-5: "c"
-6: "a"
-7: "Pad"
-```
+![Default Rust Alignment](../assets/images/rust-struct-alignment/rust-struct-field-alignment.png)
 
 The total size of `MyStruct` would be 8 bytes.
 
@@ -112,7 +101,7 @@ While Rust's default alignment is usually optimal, there are scenarios where you
 #### C Compatible Alignment with `#[repr(C)]`
 
 This is the most common `repr` attribute. It tells Rust to lay out the struct fields in the same order as a C compiler would, respecting C's alignment rules. This is crucial for FFI. It doesn't guarantee _identical_ padding to C compilers, but it guarantees the order and similar alignment rules.
-    
+
 ```rust
 #[repr(C)]
 struct CCompatibleStruct {
@@ -131,28 +120,16 @@ print-type-size     field `.c`: 2 bytes
 print-type-size     end padding: 2 bytes
 ```
 
-```mermaid
----
-config:
-  packet:
-    bitsPerRow: 8
----
-packet-beta
-0: "a"
-1-3: "Padding"
-4-7: "b"
-8-9: "c"
-10-11: "Padding"
-```
+![C Compatible Structure Alignment](../assets/images/rust-struct-alignment/rust-c-compatible-struct.png)
 
 #### Packed Alignment with `#[repr(packed)]`
 
 This attribute tells Rust to lay out the struct fields without any padding between them. This can reduce memory usage but might lead to performance penalties or even undefined behavior on some architectures if you access unaligned fields. Use with extreme caution.
-    
+
 ```rust
 #[repr(packed)]
 struct PackedStruct {
-	a: u32,
+    a: u32,
 	b: u8,
 	c: u16,
 }
@@ -165,17 +142,7 @@ print-type-size     field `.b`: 4 bytes
 print-type-size     field `.c`: 2 bytes
 ```
 
-```mermaid
----
-config:
-  packet:
-    bitsPerRow: 8
----
-packet-beta
-0: "a"
-1-4: "b"
-5-7: "c"
-```
+![Packed Alignment](../assets/images/rust-struct-alignment/rust-packed-struct.png)
 
 #### Structure Alignment with `#[repr(align(N))]`
 
@@ -198,18 +165,7 @@ print-type-size     field `.a`: 1 bytes
 print-type-size     end padding: 9 bytes
 ```
 
-```mermaid
----
-config:
-  packet:
-    bitsPerRow: 8
----
-packet-beta
-0-3: "b"
-4-5: "c"
-6: "a"
-7-15: "Pad"
-```
+![Structure Alignment](../assets/images/rust-struct-alignment/rust-align16-struct.png)
 
 #### Multiple Alignment Specifiers
 
@@ -233,19 +189,7 @@ print-type-size     field `.c`: 2 bytes
 print-type-size     end padding: 6 bytes
 ```
 
-```mermaid
----
-config:
-  packet:
-    bitsPerRow: 8
----
-packet-beta
-0: "a"
-1-3: "Padding"
-4-7: "b"
-8-9: "c"
-10-15: "Padding"
-```
+![Multiple Alignment Specifiers](../assets/images/rust-struct-alignment/rust-align16-c-struct.png)
 
 ## Cache Line Alignment
 
@@ -265,25 +209,8 @@ struct CCompatibleStruct {
 let array = [CCompatibleStruct; 10];
 ```
 
-```mermaid
----
-config:
-  packet:
-    bitWidth: 8
-    bitsPerRow: 64
----
-packet-beta
-0-11: "S0"
-12-23: "S1"
-24-35: "S2"
-36-47: "S3"
-48-59: "S4"
-60-71: "S5"
-72-83: "S6"
-84-95: "S7"
-96-107: "S8"
-108-119: "S9"
-```
+![Cache Line Alignment](../assets/images/rust-struct-alignment/rust-cache-line-array.png)
+
 This is not always a problem, but there are scenarios where it could be. For example, in a multi-threaded application where different threads operate on different sets of structures in the array, then it is desirable for the same cache line not to be shared by different threads. If the different threads were operating on different CPU cores and trying to access different structures that shared a cache line then poor performance will result. In such a scenario, this can be performance optimised by ensuring that each thread operated on a separate cache line and that the a structure didn't span a cache line boundary, using `#[repr(align(N))]` where N is an integer divisor of the cache line size. In the above example, the use of `#[repr(C, align(16))]` ensures that a structure within the array does not span a cache line boundary.
 
 This learning also applies to the large structure scenario. By making large structures a multiple of the cache line size, it helps to optimise cache performance.
