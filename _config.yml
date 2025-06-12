@@ -83,9 +83,8 @@ defaults:
   - scope:
       path: ""
     values:
-      excerpt: "Life Hacks and Programming"
       header:
-        overlay_image: /assets/images/header.jpg
+        image: /assets/images/header.jpg
   # _posts
   - scope:
       path: ""
@@ -97,8 +96,7 @@ defaults:
       share: true
       related: true
       show_date: true
-      header:
-        image: /assets/images/header.jpg
+      classes: wide
   # _pages
   - scope:
       path: "_pages"
@@ -106,6 +104,7 @@ defaults:
     values:
       layout: single
       author_profile: true
+      classes: wide
 
 category_archive:
   type: liquid
