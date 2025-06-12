@@ -2,6 +2,6 @@
 layout: home
 author_profile: true
 toc: true
-sidebar:
-    nav: "lenker"
+pagination:
+    enabled: true
 ---
