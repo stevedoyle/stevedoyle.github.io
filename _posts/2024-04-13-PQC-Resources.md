@@ -15,5 +15,4 @@ tags:
 - [NVIDIA cuPQC](https://developer.nvidia.com/cuPQC) leverages the parallel processing power of NVIDIA GPUs to accelerate post-quantum cryptographic operations.
 - [The Rustls TLS Library PQC Key Exchange Support](https://www.memorysafety.org/blog/pq-key-exchange/). The support is currently available via a separate experimental crate, [rustls=post-quantum](https://crates.io/crates/rustls-post-quantum).
 
-*Last updated: 2024-08-18*
-
+Last updated: 2024-08-18
