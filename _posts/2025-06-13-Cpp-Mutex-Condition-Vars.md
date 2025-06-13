@@ -229,4 +229,6 @@ int main() {
 
 In this example, the `mutex` protects the queue and the `finished` flag.
 The `condition_variable` allows the consumer to sleep efficiently when the queue
-is empty, and the producer to signal it when new data is ready.
+is empty, and the producer to signal it when new data is ready. Notice how the
+scope blocks are used to manage the lock lifetime and hence the mutex
+acquisition and release.
