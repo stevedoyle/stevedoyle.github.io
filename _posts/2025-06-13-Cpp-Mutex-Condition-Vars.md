@@ -82,10 +82,10 @@ you need more control.
 Enter `std::unique_lock`, also from C++11. It's a more powerful RAII wrapper
 that gives you:
 
-* **Explicit Control**: You can call `lock()` and `unlock()` on the
+- **Explicit Control**: You can call `lock()` and `unlock()` on the
   `unique_lock` object itself.
-* **Deferred Locking**: You can create it without locking the mutex immediately.
-* **Movability**: You can transfer ownership of the lock from one `unique_lock`
+- **Deferred Locking**: You can create it without locking the mutex immediately.
+- **Movability**: You can transfer ownership of the lock from one `unique_lock`
   to another.
 
 Most importantly, `std::unique_lock` is **essential for working with condition
@@ -157,11 +157,11 @@ cv.wait(lock, []{ return !queue.empty(); });
 
 ### Lost Wakeups
 
-This is a logic bug where a `notify` is sent _before_ a thread starts waiting,
+This is a logic bug where a `notify` is sent *before* a thread starts waiting,
 causing the notification to be lost and the thread to wait forever.
 
 **The Solution:** Strictly follow the correct protocol. The waiting thread must
-lock the mutex _before_ checking the condition. The `cv.wait()` call then
+lock the mutex *before* checking the condition. The `cv.wait()` call then
 ensures the lock is released atomically as the thread goes to sleep, preventing
 any race condition where a notification could be missed.
 
