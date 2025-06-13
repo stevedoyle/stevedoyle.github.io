@@ -85,8 +85,6 @@ print-type-size     field `.a`: 1 bytes
 print-type-size     end padding: 1 bytes
 ```
 
-![Default Rust Alignment](../assets/images/rust-struct-alignment/rust-struct-field-alignment.png)
-
 The total size of `MyStruct` would be 8 bytes.
 
 - The structure fields were rearranged by the compiler to minimise padding. This is typically achieved by ordering fields from largest to smallest.
@@ -120,8 +118,6 @@ print-type-size     field `.c`: 2 bytes
 print-type-size     end padding: 2 bytes
 ```
 
-![C Compatible Structure Alignment](../assets/images/rust-struct-alignment/rust-c-compatible-struct.png)
-
 #### Packed Alignment with `#[repr(packed)]`
 
 This attribute tells Rust to lay out the struct fields without any padding between them. This can reduce memory usage but might lead to performance penalties or even undefined behavior on some architectures if you access unaligned fields. Use with extreme caution.
@@ -141,8 +137,6 @@ print-type-size     field `.a`: 1 bytes
 print-type-size     field `.b`: 4 bytes
 print-type-size     field `.c`: 2 bytes
 ```
-
-![Packed Alignment](../assets/images/rust-struct-alignment/rust-packed-struct.png)
 
 #### Structure Alignment with `#[repr(align(N))]`
 
@@ -164,8 +158,6 @@ print-type-size     field `.c`: 2 bytes
 print-type-size     field `.a`: 1 bytes
 print-type-size     end padding: 9 bytes
 ```
-
-![Structure Alignment](../assets/images/rust-struct-alignment/rust-align16-struct.png)
 
 #### Multiple Alignment Specifiers
 
@@ -189,13 +181,11 @@ print-type-size     field `.c`: 2 bytes
 print-type-size     end padding: 6 bytes
 ```
 
-![Multiple Alignment Specifiers](../assets/images/rust-struct-alignment/rust-align16-c-struct.png)
-
 ## Cache Line Alignment
 
 Unless `#[repr(packed)]` is used, the compiler alignment of structure fields ensures that an individual field won't span a cache line boundary which is typically 64 bytes for x86 and 128 bytes for Apple M. However, there are cases where a structure may span a cache line boundary. Two common situations are large structures and arrays of structures.
 
-Looking closer at the array of structures case, consider an example where we have an array of 10 `CCompatibleStruct` structures. From the earlier analysis, this structure is 12 bytes and so the array size is 120 bytes. On an x86 system with a 64 byte cache line, this results in one of the structures (`S5` in the diagram below) in the array spanning the cache line boundary.
+Looking closer at the array of structures case, consider an example where we have an array of 10 `CCompatibleStruct` structures. From the earlier analysis, this structure is 12 bytes and so the array size is 120 bytes. On an x86 system with a 64 byte cache line, this results in one of the structures in the array spanning the cache line boundary.
 
 ```rust
 #[repr(C)]
@@ -208,8 +198,6 @@ struct CCompatibleStruct {
 // Array of 10 CCompatibleStructs. Each struct is 12 bytes.
 let array = [CCompatibleStruct; 10];
 ```
-
-![Cache Line Alignment](../assets/images/rust-struct-alignment/rust-cache-line-array.png)
 
 This is not always a problem, but there are scenarios where it could be. For example, in a multi-threaded application where different threads operate on different sets of structures in the array, then it is desirable for the same cache line not to be shared by different threads. If the different threads were operating on different CPU cores and trying to access different structures that shared a cache line then poor performance will result. In such a scenario, this can be performance optimised by ensuring that each thread operated on a separate cache line and that the a structure didn't span a cache line boundary, using `#[repr(align(N))]` where N is an integer divisor of the cache line size. In the above example, the use of `#[repr(C, align(16))]` ensures that a structure within the array does not span a cache line boundary.
 
