@@ -1,5 +1,5 @@
 ---
-title: "Mastering C++ Concurrency: A Deep Dive Into Mutexes and Condition Variables"
+title: "Mastering C++ Concurrency: Mutexes and Condition Variables"
 tags:
     - C++
 ---
