@@ -1,4 +1,7 @@
 main:
+  - title: "Home"
+    url: "/"
+    icon: "fa fa-home"
   - title: "Posts"
     url: "/posts/"
     icon: "fa fa-file-text"
