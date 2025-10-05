@@ -126,15 +126,19 @@ These discussions revealed a fundamental tension: adding crypto agility required
 Wireguard's PQC challenges stem from several design decisions:
 
 ### 1. No Protocol Versioning
+
 Without version fields, there's no clean way to signal support for new cryptographic algorithms. Every peer must have identical cryptographic understanding.
 
 ### 2. Fixed Message Structures
+
 Handshake messages have fixed sizes optimized for specific algorithms. PQ algorithms require larger keys and ciphertexts, breaking the message format.
 
 ### 3. Hardcoded Algorithm Identifiers
+
 The protocol has no algorithm negotiation mechanism. Algorithm choice is implicit in the protocol version.
 
 ### 4. Tight Coupling
+
 Cryptographic primitives are deeply integrated into the protocol flow, making substitution require protocol redesign.
 
 ## Lessons for Protocol Design
@@ -142,26 +146,34 @@ Cryptographic primitives are deeply integrated into the protocol flow, making su
 While Wireguard's challenges are instructive, they also point the way forward. The Wireguard PQC situation offers valuable lessons for cryptographic protocol designers:
 
 ### 1. Build in Crypto Agility from Day One
+
 Even if you use the best modern algorithms, assume they'll need replacement. Include:
+
 - Protocol version fields
 - Algorithm negotiation mechanisms
 - Extensible message formats
 - Clear upgrade paths
 
 ### 2. Balance Simplicity with Flexibility
+
 Simplicity is valuable, but not at the cost of adaptability. Find the minimum viable crypto agility:
+
 - Support a small set of algorithms, but support *selection* between them
 - Design messages to accommodate variable-length cryptographic material
 - Include reserved fields for future extensions
 
 ### 3. Plan for Hybrid Transitions
+
 PQC taught us that migration periods require hybrid approaches. Design protocols to:
+
 - Combine multiple key exchange algorithms
 - Gracefully handle peers with different capabilities
 - Support progressive rollout
 
 ### 4. Consider the Threat Model Timeline
+
 If your protocol might live for 10+ years, assume:
+
 - Current algorithms will be deprecated
 - New attack models will emerge (quantum or otherwise)
 - Regulatory requirements will change
