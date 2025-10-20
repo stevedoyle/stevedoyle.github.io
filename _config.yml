@@ -37,6 +37,7 @@ remote_theme: "mmistakes/minimal-mistakes@4.27.1"
 minimal_mistakes_skin: "default"
 search: true
 rss: rss
+encoding: utf-8
 
 # Font sizes
 type_size:
