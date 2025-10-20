@@ -39,7 +39,7 @@ zli train --profile csv openzl_benchmark_10k16.csv --output obm10k.zlc
 
 This takes some time (2m 14s on my M1 MacBook Pro) and eventually produces:
 
-```
+```text
 1 files: 2268739 -> 649425 (3.49),  82.81 MB/s  547.67 MB/s
 Training improved compression ratio by 23.54%
 ```

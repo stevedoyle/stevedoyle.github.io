@@ -54,7 +54,7 @@ The Wireguard community explored several approaches to add PQC support, each rev
 
 WireGuard actually includes a feature that can provide post-quantum security: an optional [pre-shared key (PSK)](https://www.wireguard.com/protocol/) that is "mixed into the public key cryptography for post-quantum resistance." The PSK is incorporated into the key derivation process:
 
-```
+```text
 temp = HMAC(chaining_key, preshared_key)
 chaining_key = HMAC(temp, 0x1)
 ```
@@ -91,7 +91,7 @@ Some developers created forks like [WireGuard-PQ](https://github.com/mcinerney/w
 
 The more promising approach combined classical and post-quantum algorithms. [Kudelski Security's research](https://kudelskisecurity.com/research/adding-quantum-resistance-to-wireguard/) implemented a hybrid WireGuard using the Fujioka construction, which combines two Key Encapsulation Mechanisms (KEMs):
 
-```
+```text
 shared_secret = KDF(DH(classical_keys) || KEM(pq_keys))
 ```
 
@@ -105,7 +105,7 @@ This provides security if *either* the classical or PQ algorithm remains secure.
 
 Some proposals suggested wrapping Wireguard traffic in a PQ-secure outer tunnel:
 
-```
+```text
 [Application] -> [Wireguard] -> [PQ Tunnel] -> [Network]
 ```
 
