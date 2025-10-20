@@ -2,7 +2,7 @@
 title: "OpenZL: The Beginning of Format-Native Compression"
 date: 2025-10-20
 tags: [Compression, OpenZL]
-toc: true
+toc: false
 ---
 
 Most people settle for gzip/zstd not because they’re ideal — but because truly custom compression has always been too painful to build, maintain, and deploy.
