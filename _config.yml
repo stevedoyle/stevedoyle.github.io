@@ -38,6 +38,10 @@ minimal_mistakes_skin: "default"
 search: true
 rss: rss
 
+# Font sizes
+type_size:
+  base: 12px  # default is 16px
+
 kramdown:
   input: GFM
 highlighter: rouge
