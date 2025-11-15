@@ -1,0 +1,60 @@
+---
+layout: archive
+---
+
+{{ content }}
+
+<div class="tag-cloud-container" style="text-align: center; margin: 2em 0;">
+  <h2>Tag Cloud</h2>
+  <canvas id="tagCloud" width="800" height="400" style="max-width: 100%; margin: 0 auto;"></canvas>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/wordcloud@1.2.2/src/wordcloud2.min.js"></script>
+<script>
+  var tagData = [
+    {% for tag in site.tags %}
+    ["{{ tag[0] }}", {{ tag[1].size }}]{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  ];
+
+  // Convert to format expected by wordcloud2
+  var wordList = tagData.map(function(item) {
+    return [item[0], item[1] * 10]; // Scale up for better visual
+  });
+
+  WordCloud(document.getElementById('tagCloud'), {
+    list: wordList,
+    gridSize: 8,
+    weightFactor: 3,
+    fontFamily: 'Times, serif',
+    color: function() {
+      // Random color from a nice palette
+      var colors = ['#52489C', '#4062BB', '#59C3C3', '#EBEBEB', '#F45B69'];
+      return colors[Math.floor(Math.random() * colors.length)];
+    },
+    rotateRatio: 0.3,
+    backgroundColor: '#ffffff',
+    click: function(item) {
+      // Navigate to tag section
+      window.location.hash = item[0].toLowerCase().replace(/\s+/g, '-');
+    }
+  });
+</script>
+
+<hr style="margin: 2em 0;">
+
+<h2>Posts by Tag</h2>
+
+{% assign tags_sorted = site.tags | sort %}
+
+{% for tag in tags_sorted %}
+  <section id="{{ tag[0] | slugify | downcase }}" class="taxonomy__section">
+    <h3 class="archive__subtitle">{{ tag[0] }}</h3>
+    <div class="entries-{{ entries_layout }}">
+      {% for post in tag.last %}
+        {% include archive-single.html type=entries_layout %}
+      {% endfor %}
+    </div>
+    <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+  </section>
+{% endfor %}
