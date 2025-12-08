@@ -1,7 +1,7 @@
 ---
 title: "The AI Content Authenticity Problem"
 date: 2025-10-04
-tags: [AI, workplace, ethics, productivity]
+tags: [AI, Workplace, Ethics, Productivity]
 ---
 
 We need to talk about the elephant in the room: people passing off AI-generated content as their own work without any modification or attribution.

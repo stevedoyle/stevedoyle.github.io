@@ -1,7 +1,7 @@
 ---
 title: "Working with Claude Code: Tips for Managing Context in Large Codebases"
 date: 2025-07-23
-tags: [ai]
+tags: [AI]
 toc: true
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "AI Agents and Automating Workflows: The Future of Productivity"
 date: 2025-07-23
-tags: [AI, productivity, agents]
+tags: [AI, Productivity, Agents]
 toc: true
 ---
 
