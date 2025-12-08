@@ -1,7 +1,7 @@
 ---
 title: "Understanding the UnionFind Algorithm"
 date: 2025-12-08
-tags: [Algorithms, Data-Structures, Advent-Of-Code, Rust]
+tags: [Algorithms, Data-Structures, AoC, Rust]
 toc: true
 ---
 
