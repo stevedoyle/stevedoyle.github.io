@@ -57,7 +57,7 @@ plugins:
 #  - jekyll-remote-theme
 
 # Outputting
-permalink: /:categories/:title/
+permalink: /:title/
 #paginate: 5 # amount of posts per page
 #paginate_path: /page:num/
 
