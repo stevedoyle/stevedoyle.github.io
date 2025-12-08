@@ -5,7 +5,7 @@ tags: []
 toc: false
 ---
 
-An updated list of the software and tools that I currently use. My last list was put together in [Dec 2023]({% post_url 2023-12-30-Dec-2023-What-Tools-Am-I-Using %}).
+An updated list of the software and tools that I currently use. My last list was put together in [Dec 2023]({% post_url 2023/2023-12-30-Dec-2023-What-Tools-Am-I-Using %}).
 
 ## New This Year
 

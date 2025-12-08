@@ -26,4 +26,4 @@ Deploying quantum hardware for RNG across 5 million websites is security theater
 ## References
 
 - [OVHcloud QRNG SSL Announcement](https://blog.ovhcloud.com/en-webhosting-ssl-qrng/)
-- [Do I Need a QRNG?]({% post_url 2025-10-04-do-i-need-a-qrng %})
+- [Do I Need a QRNG?]({% post_url 2025/2025-10-04-do-i-need-a-qrng %})
