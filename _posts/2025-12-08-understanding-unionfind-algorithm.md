@@ -1,5 +1,5 @@
 ---
-title: "Understanding the UnionFind Algorithm: A First-Time Experience"
+title: "Understanding the UnionFind Algorithm"
 date: 2025-12-08
 tags: [algorithms, data-structures, advent-of-code, rust]
 toc: true
