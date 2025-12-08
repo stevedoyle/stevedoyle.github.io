@@ -5,8 +5,6 @@ tags: [Algorithms, Data-Structures, AoC, Rust]
 toc: true
 ---
 
-## Introduction
-
 While solving [Advent of Code 2025 Day 8](https://adventofcode.com/2025/day/8), ([my solution](https://github.com/stevedoyle/advent-of-code/blob/main/2025/src/bin/day08.rs)), I encountered a problem that required efficiently grouping elements and determining connectivity between them. This led me to discover the Union Find (also known as Disjoint Set Union or DSU) data structure, an algorithm I hadn't used before. This post explores what UnionFind is, how it works, and why it's so useful for certain types of problems.
 
 *Disclaimer: I used Claude AI to help generate the initial draft for explaining the Union Find algorithm. I made edits to this draft to fit my style, to improve the diagrams, to add additional explanations and to reference the example back to my AoC Day 8 solution.*
