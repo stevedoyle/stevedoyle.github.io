@@ -33,24 +33,26 @@ If the date can move whenever something slips, the buckets don't mean anything.
 
 ## An Example
 
-Here are some product requirements for remote NVMe-oF storage through an IPU, the running example from my [PRD vs system requirements](https://slog.stevedoyle.io/prd-vs-system-requirements/) post:
+Here are some product requirements for a mobile photo app that keeps working offline, the running example from my [PRD vs system requirements](https://slog.stevedoyle.io/prd-vs-system-requirements/) post:
 
 ```
-PRD-CAP-001 [Must]:   Tenants see remote volumes as NVMe block devices using
-                      their OS's inbox driver.
-PRD-CAP-005 [Must]:   Tenant I/O continues through the loss of one network path.
-PRD-CAP-004 [Should]: The operator can grow a volume online, and the tenant sees
-                      the new capacity without a reboot.
-PRD-DEP-004 [Could]:  The operator can export per-volume latency histograms.
-PRD-UC-005  [Won't]:  Tenants manage their own storage connections from inside
-                      their OS.
+PRD-CAP-001 [Must]:   Users can take a photo and it is saved to the device
+                      library immediately.
+PRD-CAP-005 [Must]:   Photos taken while offline are queued and uploaded
+                      automatically once connectivity returns.
+PRD-CAP-004 [Should]: Users can see upload progress and manually retry a
+                      failed upload.
+PRD-DEP-004 [Could]:  Users can see how much device storage their queued
+                      photos are using.
+PRD-UC-005  [Won't]:  Users can set a custom retry schedule for failed
+                      uploads.
 ```
 
 Ask "what happens if we don't ship this?" for each one.
 Without CAP-001 or CAP-005 there's no product.
-Without online resize, operators have to schedule downtime: painful, but workable.
-Histograms are nice to have.
-And writing down the Won't stops the "can't the tenant just configure it?" debate coming back every review.
+Without progress and manual retry, users lack visibility into a stuck upload: painful, but workable.
+A storage-usage indicator is nice to have.
+And writing down the Won't stops the "can't the user just configure the retry timing?" debate coming back every review.
 
 ## Tips and BKMs
 
